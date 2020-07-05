@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-hotel-list',
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
 })
-export class HotelListComponent implements OnInit {
+export class HotelListComponent {
 
   public hotels: any[] = [
     {
@@ -22,8 +22,8 @@ export class HotelListComponent implements OnInit {
       imageUrl: 'assets/img/the-interior.jpg'
     }, {
       hotelId: 3,
-      hotelName: 'Buea sweet life',
-      description: 'Belle vue au bord de la mer',
+      hotelName: 'Abudja new look palace',
+      description: 'Séjour complet avec service de voitures',
       price: 120.12,
       imageUrl: 'assets/img/indoors.jpg'
     }, {
@@ -33,10 +33,12 @@ export class HotelListComponent implements OnInit {
       price: 135.12,
       imageUrl: 'assets/img/window.jpg'
     }
-  ]
-  constructor() { }
+  ];
 
-  ngOnInit(): void {
+  public showBadge: boolean;
+
+  public toggleIsNewBadge(): void {
+    this.showBadge = !this.showBadge;
   }
 
 }
