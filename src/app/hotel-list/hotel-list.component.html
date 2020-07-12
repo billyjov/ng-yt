@@ -25,7 +25,7 @@
       <div class="card">
         <img
           [src]="hotel.imageUrl"
-          [title]="hotel.hotelName"
+          [title]="hotel.hotelName | uppercase"
           [alt]="hotel.hotelName"
           class="card-img-top"
         />
@@ -36,6 +36,9 @@
             {{ hotel.description }}
           </p>
 
+          <p class="card-text">
+            {{ hotel.price | currency: 'EUR': 'symbol' : '1.2-2': 'fr'}}
+          </p>
           <span class="badge badge-pill badge-info" *ngIf="showBadge">Nouveau</span>
         </div>
       </div>
