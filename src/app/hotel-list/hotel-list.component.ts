@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IHotel } from './hotel';
 
 @Component({
   selector: 'app-hotel-list',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HotelListComponent {
 
-  public hotels: any[] = [
+  public hotels: IHotel[] = [
     {
       hotelId: 1,
       hotelName: 'Buea sweet life',
