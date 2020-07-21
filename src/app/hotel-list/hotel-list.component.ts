@@ -37,14 +37,39 @@ export class HotelListComponent implements OnInit {
   ];
 
   public showBadge: boolean;
-  public hotelFilter = 'mot';
+  public filteredHotels: IHotel[];
+  _hotelFilter = 'mot';
 
   ngOnInit() {
     // code for lifecycle hook
+
+    this.filteredHotels = this.hotels;
+    this.hotelFilter = 'mot';
   }
 
   public toggleIsNewBadge(): void {
     this.showBadge = !this.showBadge;
+  }
+
+  get hotelFilter(): string {
+    return this._hotelFilter;
+  }
+
+  set hotelFilter(filter: string) {
+    this._hotelFilter = filter;
+    this.filteredHotels = this.hotelFilter ? this.filterHotels(this.hotelFilter) : this.hotels;
+  }
+
+
+  filterHotels(criteria: string): IHotel[] {
+    criteria = criteria.toLocaleLowerCase();
+
+    const res = this.hotels.filter(
+      (hotel: IHotel) => hotel.hotelName.toLocaleLowerCase().indexOf(criteria) !== -1
+    );
+
+    return res;
+
   }
 
 }
