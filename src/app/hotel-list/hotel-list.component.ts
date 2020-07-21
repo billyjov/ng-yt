@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IHotel } from './hotel';
 
 @Component({
@@ -6,7 +6,7 @@ import { IHotel } from './hotel';
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
 })
-export class HotelListComponent {
+export class HotelListComponent implements OnInit {
 
   public hotels: IHotel[] = [
     {
@@ -38,6 +38,10 @@ export class HotelListComponent {
 
   public showBadge: boolean;
   public hotelFilter = 'mot';
+
+  ngOnInit() {
+    // code for lifecycle hook
+  }
 
   public toggleIsNewBadge(): void {
     this.showBadge = !this.showBadge;

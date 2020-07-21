@@ -4,4 +4,5 @@ export interface IHotel {
   description: string;
   price: number;
   imageUrl: string;
+  // getNewPrice(price: number): number;
 }
