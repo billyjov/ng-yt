@@ -30,14 +30,14 @@
           class="card-img-top"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ hotel.hotelName }}</h5>
+          <h5 class="card-title">{{ hotel.hotelName | titlecase }}</h5>
 
           <p class="card-text">
             {{ hotel.description }}
           </p>
 
           <p class="card-text">
-            {{ hotel.price | currency: 'EUR': 'symbol' : '1.2-2': 'fr'}}
+            {{ hotel.price | currency: 'EUR': 'symbol' : '1.2-2': 'fr' | removeComma}}
           </p>
           <span class="badge badge-pill badge-info" *ngIf="showBadge">Nouveau</span>
         </div>
