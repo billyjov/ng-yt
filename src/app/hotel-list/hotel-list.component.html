@@ -46,7 +46,7 @@
               hotel.price | currency: "EUR":"symbol":"1.2-2":"fr" | removeComma
             }}
           </p>
-          <app-star-rating></app-star-rating>
+          <app-star-rating [rating]="hotel.rating"></app-star-rating>
           <span class="badge badge-pill badge-info" *ngIf="showBadge">
             Nouveau
           </span>
