@@ -3,19 +3,24 @@
 
   <button (click)="toggleIsNewBadge()" class="btn btn-primary mr-0 d-flex">
     <span class="material-icons">
-     {{ showBadge ? 'visibility_off' : 'visibility' }}
+      {{ showBadge ? "visibility_off" : "visibility" }}
     </span>
-    <span class="ml-2"> {{ showBadge ? 'cacher' : 'afficher' }} nouveau </span>
+    <span class="ml-2"> {{ showBadge ? "cacher" : "afficher" }} nouveau </span>
   </button>
   <hr />
   <div class="my-3">
     <div class="row">
-      <div class="col-md-4 ">
+      <div class="col-md-4">
         <span class="text-uppercase filter"> Filtre actuel: </span>
         <b>{{ hotelFilter }} </b>
       </div>
       <div class="col-md-8 form-group">
-        <input type="text" class="form-control" [(ngModel)]="hotelFilter" placeholder="rechercher"/>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="hotelFilter"
+          placeholder="rechercher"
+        />
         <!-- <input type="text" class="form-control" [ngModel]="hotelFilter" (ngModelChange)="hotelFilter = $event"/> -->
       </div>
     </div>
@@ -37,9 +42,14 @@
           </p>
 
           <p class="card-text">
-            {{ hotel.price | currency: 'EUR': 'symbol' : '1.2-2': 'fr' | removeComma}}
+            {{
+              hotel.price | currency: "EUR":"symbol":"1.2-2":"fr" | removeComma
+            }}
           </p>
-          <span class="badge badge-pill badge-info" *ngIf="showBadge">Nouveau</span>
+          <app-star-rating></app-star-rating>
+          <span class="badge badge-pill badge-info" *ngIf="showBadge">
+            Nouveau
+          </span>
         </div>
       </div>
     </div>

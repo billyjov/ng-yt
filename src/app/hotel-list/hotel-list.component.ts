@@ -36,7 +36,7 @@ export class HotelListComponent implements OnInit {
     }
   ];
 
-  public showBadge: boolean;
+  public showBadge: boolean = true;
   public filteredHotels: IHotel[];
   _hotelFilter = 'mot';
 
