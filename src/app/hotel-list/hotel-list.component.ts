@@ -42,6 +42,7 @@ export class HotelListComponent implements OnInit {
 
   public showBadge: boolean = true;
   public filteredHotels: IHotel[];
+  public receivedRating: string;
   _hotelFilter = 'mot';
 
   ngOnInit() {
@@ -64,8 +65,13 @@ export class HotelListComponent implements OnInit {
     this.filteredHotels = this.hotelFilter ? this.filterHotels(this.hotelFilter) : this.hotels;
   }
 
+  public receiveRatingClick(message: string): void {
+    this.receivedRating = message;
+    console.log(message);
+  }
 
-  filterHotels(criteria: string): IHotel[] {
+
+  private filterHotels(criteria: string): IHotel[] {
     criteria = criteria.toLocaleLowerCase();
 
     const res = this.hotels.filter(
