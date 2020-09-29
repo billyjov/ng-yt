@@ -1,5 +1,17 @@
-<div class="container mb-5 mt-5">
-  <h1>Gestionnaire d'hotel</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['']">Gestionnaire d'hotel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" [routerLink]="['/home']">Acceuil</a>
+      <a class="nav-link" [routerLink]="['/hotels']">Liste</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mt-5">
+  <router-outlet></router-outlet>
 </div>
 
-<app-hotel-list></app-hotel-list>

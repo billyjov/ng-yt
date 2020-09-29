@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { RemoveCommaPipe } from './shared/pipes/remove-comma.pipe';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { HomeComponent } from './home/home.component';
+import { HotelDetailsComponent } from './hotel-list/hotel-details/hotel-details.component';
+import { RouterModule } from '@angular/router';
 
 
 registerLocaleData(localeFr, 'fr');
@@ -18,12 +21,30 @@ registerLocaleData(localeFr, 'fr');
     AppComponent,
     HotelListComponent,
     RemoveCommaPipe,
-    StarRatingComponent
+    StarRatingComponent,
+    HomeComponent,
+    HotelDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: 'home', component: HomeComponent,
+      }, {
+        path: '', redirectTo: 'home', pathMatch: 'full'
+      }, {
+        path: 'hotels/:id', component: HotelDetailsComponent
+      }, {
+        path: 'hotels', component: HotelListComponent
+      }, {
+        path: '**',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      }
+
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
