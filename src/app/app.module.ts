@@ -30,20 +30,11 @@ registerLocaleData(localeFr, 'fr');
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {
-        path: 'home', component: HomeComponent,
-      }, {
-        path: '', redirectTo: 'home', pathMatch: 'full'
-      }, {
-        path: 'hotels/:id', component: HotelDetailsComponent
-      }, {
-        path: 'hotels', component: HotelListComponent
-      }, {
-        path: '**',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      }
-
+      { path: 'home', component: HomeComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'hotels/:id', component: HotelDetailsComponent },
+      { path: 'hotels', component: HotelListComponent },
+      { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ])
   ],
   providers: [],
