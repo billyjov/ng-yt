@@ -9,6 +9,7 @@ import { RemoveCommaPipe } from '../shared/pipes/remove-comma.pipe';
 import { HotelDetailsGuard } from './shared/guards/hotel-details.guard';
 
 import { SharedModule } from '../shared/shared.module';
+import { HotelRoutingModule } from './hotel-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,9 @@ import { SharedModule } from '../shared/shared.module';
     RemoveCommaPipe
   ],
   imports: [
-    RouterModule.forChild([
-      {
-        path: 'hotels/:id', component: HotelDetailsComponent,
-        canActivate: [HotelDetailsGuard]
-      },
-      { path: 'hotels', component: HotelListComponent },
-    ]),
     FormsModule,
-    SharedModule
+    SharedModule,
+    HotelRoutingModule
   ]
 })
 export class HotelModule { }
