@@ -5,8 +5,16 @@
   </button>
   <div class="collapse navbar-collapse">
     <div class="navbar-nav">
-      <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Acceuil</a>
-      <a class="nav-link" [routerLink]="['/hotels']" routerLinkActive="active">Liste</a>
+      <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">
+        Acceuil
+      </a>
+      <a class="nav-link" [routerLink]="['/hotels']" routerLinkActive="active">
+        Liste
+      </a>
+      <a class="nav-link" [routerLink]="['/hotels', '0', 'edit']"
+        routerLinkActive="active">
+        Ajout d'hotel
+      </a>
     </div>
   </div>
 </nav>
@@ -14,4 +22,3 @@
 <div class="mt-5">
   <router-outlet></router-outlet>
 </div>
-
