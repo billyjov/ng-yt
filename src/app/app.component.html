@@ -8,11 +8,20 @@
       <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">
         Acceuil
       </a>
-      <a class="nav-link" [routerLink]="['/hotels']" routerLinkActive="active">
+      <a
+        class="nav-link"
+        [routerLink]="['/hotels']"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Liste
       </a>
-      <a class="nav-link" [routerLink]="['/hotels', '0', 'edit']"
-        routerLinkActive="active">
+      <a
+        class="nav-link"
+        [routerLink]="['/hotels', '0', 'edit']"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Ajout d'hotel
       </a>
     </div>
