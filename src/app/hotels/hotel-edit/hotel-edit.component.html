@@ -1,56 +1,76 @@
 <div class="container">
   <div class="card">
-    <div class="card-header text-white bg-info">
-      Créer un hotel
-    </div>
+    <div class="card-header text-white bg-info">Créer un hotel</div>
 
     <div class="card-body">
       <form novalidate (ngSubmit)="saveHotel()" [formGroup]="hotelForm">
-
         <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="hotelNameId">
+          <label for="hotelNameId" class="col-md-2 col-form-label">
             Nom Hotel
           </label>
           <div class="col-md-8">
-            <input class="form-control" id="hotelNameId" type="text"
-              placeholder="Nom (champ obligatoire)" />
+            <input
+              id="hotelNameId"
+              type="text"
+              class="form-control"
+              formControlName="hotelName"
+              placeholder="Nom(obligatoire)"
+            />
           </div>
         </div>
-
         <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="hotelPriceId">
-            Prix
-          </label>
+          <label for="hotelPriceId" class="col-md-2 col-form-label">
+            Prix</label
+          >
           <div class="col-md-8">
-            <input class="form-control" id="hotelPriceId" type="text"
-              placeholder="Prix (champ obligatoire)" />
+            <input
+              id="hotelPriceId"
+              type="text"
+              class="form-control"
+              formControlName="hotelPrice"
+              placeholder="Prix(obligatoire)"
+            />
           </div>
         </div>
-
         <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="starRatingId">
-            Évaluation (1-5)
-          </label>
-
+          <label for="starRatingId" class="col-md-2 col-form-label"
+            >Évaluation (1-5)</label
+          >
           <div class="col-md-8">
-            <input class="form-control" id="starRatingId" type="text"
-              placeholder="Évaluation (1-5)" />
+            <input
+              id="starRatingId"
+              type="text"
+              class="form-control"
+              formControlName="starRating"
+              placeholder="Évaluation(1-5)"
+            />
           </div>
         </div>
 
         <div formArrayName="tags">
-          <div class="form-group row mb-2"
-            *ngFor="let tag of tags.controls; let i=index">
+          <div
+            class="form-group row mb-2"
+            *ngFor="let tag of tags.controls; let i = index"
+          >
             <label class="col-md-2 col-form-label" [attr.for]="i">
-              {{ 'Étiquette ' + i }}
+              {{ "Étiquette " + i }}
             </label>
 
             <div class="col-md-8">
-              <input class="form-control" [id]="i" type="text"
-                placeholder="{{ 'Étiquette ' + i }}" [formControlName]="i" />
+              <input
+                class="form-control"
+                [id]="i"
+                type="text"
+                placeholder="{{ 'Étiquette ' + i }}"
+                [formControlName]="i"
+              />
             </div>
-            <button class="col-md-1 btn btn-outline-danger btn-sm" type="button"
-              title="Delete this search tag" (click)="deleteTag(i)">
+            <button
+              class="col-md-1 btn btn-outline-danger btn-sm"
+              type="button"
+              title="Delete this search tag"
+              (click)="deleteTag(i)"
+            >
               Supprimer
             </button>
           </div>
@@ -58,35 +78,47 @@
 
         <div class="row">
           <div class="col-md-2 mb-2">
-            <button class="btn btn-outline-primary btn-sm" type="button"
-              title="Ajouter une étiquette" (click)="addTag()">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              type="button"
+              title="Ajouter une étiquette"
+              (click)="addTag()"
+            >
               Ajouter une étiquette
             </button>
           </div>
         </div>
 
         <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="descriptionId">
-            Description
+          <label for="descriptionId" class="col-md-2 col-form-label"
+            >Description
           </label>
-
           <div class="col-md-8">
-            <textarea class="form-control" id="descriptionId"
-              placeholder="Description" rows=3></textarea>
+            <textarea
+              class="form-control"
+              formControlName="description"
+              id="descriptionId"
+            ></textarea>
           </div>
         </div>
 
         <div class="form-group row mb-2">
           <div class="offset-md-2 col-md-4">
-            <button class="btn btn-info mr-3" type="submit">
-              Sauvegarder
-            </button>
-            <button class="btn btn-outline-secondary mr-3" type="button"
-              title="Annuler les modifications" [routerLink]="['/hotels']">
+            <button class="btn btn-info mr-3" type="submit">Sauvegarder</button>
+            <button
+              class="btn btn-outline-secondary mr-3"
+              type="button"
+              title="Annuler les modifications"
+              [routerLink]="['/hotels']"
+            >
               Annuler
             </button>
-            <button class="btn btn-outline-danger" type="button"
-              title="Supprimer cet hotel" (click)="deleteHotel()">
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              title="Supprimer cet hotel"
+              (click)="deleteHotel()"
+            >
               Supprimer
             </button>
           </div>
@@ -98,5 +130,4 @@
       {{ errorMessage }}
     </div>
   </div>
-
 </div>
