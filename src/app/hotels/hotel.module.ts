@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
@@ -10,17 +10,21 @@ import { HotelDetailsGuard } from './shared/guards/hotel-details.guard';
 
 import { SharedModule } from '../shared/shared.module';
 import { HotelRoutingModule } from './hotel-routing.module';
+import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 
 @NgModule({
   declarations: [
     HotelListComponent,
     HotelDetailsComponent,
-    RemoveCommaPipe
+    RemoveCommaPipe,
+    HotelEditComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
-    HotelRoutingModule
+    HotelRoutingModule,
+
   ]
 })
 export class HotelModule { }
