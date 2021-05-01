@@ -36,7 +36,6 @@ export class HotelEditComponent implements OnInit {
       description: ''
     });
 
-
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
 
