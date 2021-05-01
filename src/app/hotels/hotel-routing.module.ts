@@ -5,6 +5,7 @@ import { HotelDetailsGuard } from './shared/guards/hotel-details.guard';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
+import { HotelEditGuard } from './shared/guards/hotel-edit.guard';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
       },
       {
         path: 'hotels/:id/edit',
-        component: HotelEditComponent
+        component: HotelEditComponent,
+        canDeactivate: [HotelEditGuard]
       }
     ]),
   ],
