@@ -74,7 +74,7 @@
               Annuler
             </button>
             <button class="btn btn-outline-danger" type="button"
-              title="Supprimer cet hotel" (click)="deleteHotel()">
+              title="Supprimer cet hotel" [disabled]="hotel.id === 0" (click)="deleteHotel()">
               Supprimer
             </button>
           </div>
