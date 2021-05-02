@@ -110,6 +110,17 @@ export class HotelEditComponent implements OnInit {
 
   public deleteHotel(): void {
 
+    if (this.hotel.id === 0) {
+      this.saveCompleted();
+    } else {
+      if (confirm(`Voulez-vous réelement supprimer ${this.hotel.hotelName} ?`)) {
+        this.hotelService.deleteHotel(this.hotel.id).subscribe({
+          next: () => this.saveCompleted(),
+          error: (err) => this.errorMessage = err
+        });
+      }
+    }
+
   }
 
 
