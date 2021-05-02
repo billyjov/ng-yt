@@ -11,7 +11,7 @@ import { IHotel } from '../models/hotel';
 })
 export class HotelListService {
 
-  private readonly HOTEL_API_URL = 'api/hotels.json'
+  private readonly HOTEL_API_URL = 'api/hotels'
   constructor(private http: HttpClient) { }
 
   public getHotels(): Observable<IHotel[]> {
