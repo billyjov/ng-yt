@@ -30,6 +30,21 @@ export class HotelListService {
     );
   }
 
+  public createHotel(hotel: IHotel): Observable<IHotel> {
+    hotel = { ...hotel, imageUrl: 'assets/img/window.jpg' };
+    return this.http.post<IHotel>(this.HOTEL_API_URL, hotel).pipe(
+      catchError(this.handleHttpError)
+    )
+  }
+
+  public updateHotel(hotel: IHotel): Observable<IHotel> {
+    const url = `${this.HOTEL_API_URL}/${hotel.id}`;
+
+    return this.http.put<IHotel>(url, hotel).pipe(
+      catchError(this.handleHttpError)
+    );
+  }
+
   private getDefaultHotel(): IHotel {
     return {
       id: 0,

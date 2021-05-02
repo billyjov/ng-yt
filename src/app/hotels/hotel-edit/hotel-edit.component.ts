@@ -30,8 +30,8 @@ export class HotelEditComponent implements OnInit {
       Validators.minLength(3),
       Validators.maxLength(50)]
       ],
-      hotelPrice: ['', Validators.required],
-      starRating: [''],
+      price: ['', Validators.required],
+      rating: [''],
       tags: this.fb.array([]),
       description: ''
     });
@@ -60,8 +60,8 @@ export class HotelEditComponent implements OnInit {
 
     this.hotelForm.patchValue({
       hotelName: this.hotel.hotelName,
-      hotelPrice: this.hotel.price,
-      starRating: this.hotel.rating,
+      price: this.hotel.price,
+      rating: this.hotel.rating,
       description: this.hotel.description
     });
 
@@ -83,7 +83,23 @@ export class HotelEditComponent implements OnInit {
   public saveHotel(): void {
     if (this.hotelForm.valid) {
       if (this.hotelForm.dirty) {
+        const hotel: IHotel = {
+          ...this.hotel,
+          ...this.hotelForm.value
+        };
 
+        // add or edit logic
+        if (hotel.id === 0) {
+          this.hotelService.createHotel(hotel).subscribe({
+            next: () => this.saveCompleted(),
+            error: (err) => this.errorMessage = err
+          });
+        } else {
+          this.hotelService.updateHotel(hotel).subscribe({
+            next: () => this.saveCompleted(),
+            error: (err) => this.errorMessage = err
+          });
+        }
       } else {
         this.saveCompleted();
       }
@@ -99,7 +115,7 @@ export class HotelEditComponent implements OnInit {
 
   public saveCompleted(): void {
     this.hotelForm.reset();
-    this.router.navigate(['/products']);
+    this.router.navigate(['/hotels']);
   }
 
 }
