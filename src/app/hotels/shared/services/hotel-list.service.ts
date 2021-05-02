@@ -24,14 +24,15 @@ export class HotelListService {
     if (id === 0) {
       return of(this.getDefaultHotel());
     }
-    return this.getHotels().pipe(
-      map(hotels => hotels.find(hotel => hotel.hotelId === id)),
+
+    return this.http.get<IHotel>(`${this.HOTEL_API_URL}/${id}`).pipe(
+      catchError(this.handleHttpError)
     );
   }
 
   private getDefaultHotel(): IHotel {
     return {
-      hotelId: 0,
+      id: 0,
       hotelName: null,
       description: null,
       price: null,
