@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { HotelModule } from './hotels/hotel.module';
 import { AppRoutingModule } from './app-routing.module';
 
-
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
