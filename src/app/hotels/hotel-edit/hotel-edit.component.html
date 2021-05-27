@@ -9,40 +9,68 @@
             Nom Hotel
           </label>
           <div class="col-md-8">
-            <input id="hotelNameId" type="text" class="form-control"
-              formControlName="hotelName" placeholder="Nom(obligatoire)" />
+            <input
+              id="hotelNameId"
+              type="text"
+              class="form-control"
+              formControlName="hotelName"
+              placeholder="Nom(obligatoire)"
+            />
           </div>
         </div>
         <div class="form-group row mb-2">
           <label for="hotelPriceId" class="col-md-2 col-form-label">
-            Prix</label>
+            Prix</label
+          >
           <div class="col-md-8">
-            <input id="hotelPriceId" type="text" class="form-control"
-              formControlName="price" placeholder="Prix(obligatoire)" />
+            <input
+              id="hotelPriceId"
+              type="text"
+              class="form-control"
+              formControlName="price"
+              placeholder="Prix(obligatoire)"
+            />
           </div>
         </div>
         <div class="form-group row mb-2">
-          <label for="starRatingId" class="col-md-2 col-form-label">Évaluation
-            (1-5)</label>
+          <label for="starRatingId" class="col-md-2 col-form-label"
+            >Évaluation (1-5)</label
+          >
           <div class="col-md-8">
-            <input id="starRatingId" type="text" class="form-control"
-              formControlName="rating" placeholder="Évaluation(1-5)" />
+            <input
+              id="starRatingId"
+              type="text"
+              class="form-control"
+              formControlName="rating"
+              placeholder="Évaluation(1-5)"
+            />
           </div>
         </div>
 
         <div formArrayName="tags">
-          <div class="form-group row mb-2"
-            *ngFor="let tag of tags.controls; let i = index">
+          <div
+            class="form-group row mb-2"
+            *ngFor="let tag of tags.controls; let i = index"
+          >
             <label class="col-md-2 col-form-label" [attr.for]="i">
               {{ "Étiquette " + i }}
             </label>
 
             <div class="col-md-8">
-              <input class="form-control" [id]="i" type="text"
-                placeholder="{{ 'Étiquette ' + i }}" [formControlName]="i" />
+              <input
+                class="form-control"
+                [id]="i"
+                type="text"
+                placeholder="{{ 'Étiquette ' + i }}"
+                [formControlName]="i"
+              />
             </div>
-            <button class="col-md-1 btn btn-outline-danger btn-sm" type="button"
-              title="Delete this search tag" (click)="deleteTag(i)">
+            <button
+              class="col-md-1 btn btn-outline-danger btn-sm"
+              type="button"
+              title="Delete this search tag"
+              (click)="deleteTag(i)"
+            >
               Supprimer
             </button>
           </div>
@@ -50,31 +78,48 @@
 
         <div class="row">
           <div class="col-md-2 mb-2">
-            <button class="btn btn-outline-primary btn-sm" type="button"
-              title="Ajouter une étiquette" (click)="addTag()">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              type="button"
+              title="Ajouter une étiquette"
+              (click)="addTag()"
+            >
               Ajouter une étiquette
             </button>
           </div>
         </div>
 
         <div class="form-group row mb-2">
-          <label for="descriptionId" class="col-md-2 col-form-label">Description
+          <label for="descriptionId" class="col-md-2 col-form-label"
+            >Description
           </label>
           <div class="col-md-8">
-            <textarea class="form-control" formControlName="description"
-              id="descriptionId"></textarea>
+            <textarea
+              class="form-control"
+              formControlName="description"
+              id="descriptionId"
+            ></textarea>
           </div>
         </div>
 
         <div class="form-group row mb-2">
           <div class="offset-md-2 col-md-8">
             <button class="btn btn-info mr-3" type="submit">Sauvegarder</button>
-            <button class="btn btn-outline-secondary mr-3" type="button"
-              title="Annuler les modifications" [routerLink]="['/hotels']">
+            <button
+              class="btn btn-outline-secondary mr-3"
+              type="button"
+              title="Annuler les modifications"
+              [routerLink]="['/hotels']"
+            >
               Annuler
             </button>
-            <button class="btn btn-outline-danger" type="button"
-              title="Supprimer cet hotel" [disabled]="hotel.id === 0" (click)="deleteHotel()">
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              title="Supprimer cet hotel"
+              [disabled]="hotel?.id === 0"
+              (click)="deleteHotel()"
+            >
               Supprimer
             </button>
           </div>
@@ -87,3 +132,7 @@
     </div>
   </div>
 </div>
+
+<pre>
+  {{ hotelForm.value | json }}
+</pre>
