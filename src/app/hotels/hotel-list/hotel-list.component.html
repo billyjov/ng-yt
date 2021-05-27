@@ -55,7 +55,14 @@
               (starRatingClicked)="receiveRatingClick($event)"
             ></app-star-rating>
             <span
-              class="material-icons bg-primary text-white p-2 rounded-circle btn"
+              class="
+                material-icons
+                bg-primary
+                text-white
+                p-2
+                rounded-circle
+                btn
+              "
               [routerLink]="['/hotels', hotel.id, 'edit']"
             >
               edit
@@ -67,9 +74,17 @@
               keyboard_arrow_right
             </span>
           </div>
-          <span class="badge badge-pill badge-info" *ngIf="showBadge">
-            Nouveau
-          </span>
+          <ng-container *ngFor="let tag of hotel.tags; let i = index">
+            <ng-container *ngIf="showBadge">
+              <!-- [ngClass]="{'badge-success': 0 === i % 2 }" -->
+              <span
+                class="badge badge-pill"
+                [ngClass]="0 === i % 2 ? 'badge-success': 'badge-info ml-2'"
+              >
+                {{ tag }}
+              </span>
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </div>

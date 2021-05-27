@@ -26,9 +26,13 @@ export class HotelEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.hotelForm = this.fb.group({
-      hotelName: ['', [Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(50)]
+      hotelName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
       ],
       price: ['', Validators.required],
       rating: [''],
@@ -62,9 +66,9 @@ export class HotelEditComponent implements OnInit {
       hotelName: this.hotel.hotelName,
       price: this.hotel.price,
       rating: this.hotel.rating,
-      description: this.hotel.description
+      description: this.hotel.description,
     });
-
+    this.hotelForm.setControl('tags', this.fb.array(this.hotel.tags || []));
   }
 
   public get tags(): FormArray {
