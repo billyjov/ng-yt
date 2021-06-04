@@ -31,6 +31,7 @@
             <span class="invalid-feedback">
               {{ formErrors.hotelName }}
             </span>
+            />
           </div>
         </div>
         <div class="form-group row mb-2">
@@ -55,6 +56,13 @@
           <label for="starRatingId" class="col-md-2 col-form-label">
             Évaluation (1-5)
           </label>
+            />
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <label for="starRatingId" class="col-md-2 col-form-label"
+            >Évaluation (1-5)</label
+          >
           <div class="col-md-8">
             <input
               id="starRatingId"
@@ -62,11 +70,13 @@
               class="form-control"
               formControlName="rating"
               placeholder="Évaluation(1-5)"
+
               [ngClass]="{ 'is-invalid': formErrors.rating }"
             />
             <span class="invalid-feedback">
               {{ formErrors.rating }}
             </span>
+            />
           </div>
         </div>
 
