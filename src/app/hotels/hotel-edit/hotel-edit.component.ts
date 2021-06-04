@@ -48,10 +48,10 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private hotelService: HotelListService
 
-    ) { }
+  ) { }
 
-    ngOnInit(): void {
-      this.globalGenericValidator = new GenericGlobalValidator(this.validationMessages);
+  ngOnInit(): void {
+    this.globalGenericValidator = new GenericGlobalValidator(this.validationMessages);
 
     // first attempt
     // this.formErrors = this.globalGenericValidator.createErrorMessages(this.hotelForm);
